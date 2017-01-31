@@ -1,0 +1,222 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Luthando
+ * Date: 2016/10/12
+ * Time: 03:11 PM
+ */
+
+?>
+
+
+<?php include("includes/header.php");?>
+
+<div id="new_intro" class="intro_technical ">
+    <div class="container">
+        <?php include("includes/intro_menu.php");?>
+    </div>
+</div>
+
+
+<?php include("includes/top_submenu.php");?>
+
+<div class="container">
+    <h1 id="new_main_title">
+        Technical Support
+    </h1>
+</div>
+
+
+<form class="form" method="POST" action="">
+    <style>
+        table{ width: 100%; }
+
+
+        input, select { width: 100%;}
+        .minText{
+            width:40px;
+        }
+        .minSpan
+        {
+            padding: 3px;
+        }
+        .minSpanRight{
+            padding-right: 65px;
+        }
+        .mycheckbox{
+            width:20px;
+            height: 10px;
+        }
+    </style>
+
+
+    <div class="col-sm-12">
+        <div class="col-sm-1"></div>
+
+        <div class="col-sm-1"></div>
+    </div>
+
+    <div class="divSmallSpace2 col-sm-12"></div>
+
+    <div class="col-sm-12">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 table-responsive">
+            <h3>SEARCH</h3>
+            <table>
+                <tr>
+                    <td>
+                        <span class="textSpan">Manufacturer</span><br>
+                        <label>
+                            <select name="manufacture">
+                                <option value="Nothing">Select Manufacturer</option>
+                                <option value="1">Manufacture1</option>
+                                <option value="2">Manufacture2</option>
+                            </select>
+                        </label>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td height="7px"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="textSpan">Customer</span><br>
+
+                        <label>
+                            <input type="text" name="client" value="1">
+                        </label>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td height="7px"></td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span class="textSpan">Project Number</span><br>
+                        <label>
+                            <input type="text" name="project_no">
+                        </label>
+                        <br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td height="7px"></td>
+                </tr>
+            </table>
+        </div>
+        <?php if(isset($_POST['btnSendEnquiry2'])): ?>
+        <div class="col-sm-6">
+            <h3>RESULTS</h3>
+            <span class="textSpan">Producer Industrial Equipment</span>
+            <br><br>
+            <?php
+$username = 'indigfajaw_71';
+$password = 'VRivJrF9B88';
+$con = mysqli_connect("dedi1009.jnb1.host-h.net",$username,$password,"proindustrial");
+
+#Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+  $sql = "SELECT
+technical_document.tech_id,
+technical_document.manufacture_id,
+technical_document.client_id,
+technical_document.project_number,
+technical_document.project_data,
+technical_document.mechanical_draw,
+technical_document.electric_diagrams,
+technical_document.parts_list,
+technical_document.date
+FROM
+technical_document
+WHERE manufacture_id =".$_POST['manufacture']." AND client_id =".$_POST['client']." AND project_number =".$_POST['project_no']."";
+$result = $con->query($sql);
+
+            if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+
+            echo " <a target='_blank' href='" . $row["project_data"]. "' style='display: block;'><img width='35px' src='../img/PDF-Icon-94x121.png'> <span class='textSpan' style='padding: 12px;'> Project Data</span><br><br>
+            <a target='_blank' href='" . $row["mechanical_draw"]. "' style='display: block;'><img width='35px' src='../img/PDF-Icon-94x121.png'> <span class='textSpan' style='padding: 12px;'> Mechanical Drawings</span><br><br>
+                <a target='_blank' href='" . $row["electric_diagrams"]. "'><img width='35px' src='../img/PDF-Icon-94x121.png'> <span class='textSpan' style='padding: 12px;'>Electric Diagrams</span><br><br>
+                    <a target='_blank' href='" . $row["parts_list"]. "'><img width='35px' src='../img/PDF-Icon-94x121.png'> <span class='textSpan' style='padding: 12px;'>Parts List</span><br><br>";
+                        }
+                        }else{
+                        echo 'No result found';
+                        }
+                        ?>
+
+                        <br/><br/>
+
+        </div>
+        <div class="col-sm-4"></div>
+        <?php endif; ?>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="col-sm-12" style="">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4 table-responsive">
+            <table>
+                <tr>
+                    <td>
+                        <input class="button" type="submit" name="btnSendEnquiry2" id="btnSendEnquiry2" value="SEARCH">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-12" style="display:none">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8 divTitle">
+            <div class="col-sm-10">
+                <div style="height: 10px"></div>
+                <div>
+                    <span class="textBlack">GENERAL DATA</span>
+                </div>
+                <div style="height: 10px"></div>
+            </div>
+            <div class="col-sm-2">
+                <div style="height: 10px"></div>
+                <div>
+                    <span class="textSpan" style="color: black"></span>
+                </div>
+                <div style="height: 10px"></div>
+            </div>
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+
+    <div class="col-sm-12">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-2">
+
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+
+
+    <div class="col-sm-12" style="height: 100px;"></div>
+
+
+
+
+    <br><br><br>
+
+</form>
+</div>
+
+<?php
+        include_once($_SERVER["DOCUMENT_ROOT"].'/proindustrial/includes/layout/footer.php');
+    ?>

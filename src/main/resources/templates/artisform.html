@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Artist</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"
+          href="../static/css/style.css"/>
+
+</head>
+<body>
+<div>
+    <section class="artistinfo">
+     <h1>Add Artist</h1>
+        <form class="form-horizontal" th:object="${artist}"  th:action="@{/Artist}" method="POST">
+            <input type="hidden" th:field="*{id}"/>
+            <input type="hidden" th:field="*{version}"/>
+            <table>
+        <tr><td><lable>Full Name:</lable>
+        <input  placeholder="Enter Full Name"  th:field="*{fullName}" />
+        </td></tr>
+                <tr><td> <lable>BIO:</lable>
+            <input  placeholder="Enter Artist BIO"  th:field="*{bio}" />
+                </td></tr>
+                <tr><td>
+            <lable>Reknown:</lable>
+            <input  placeholder="Enter Reknown"  th:field="*{reknown}" />
+                </td></tr>
+                <tr><td>
+            <lable>Image Url:</lable>
+            <input  placeholder="Enter Image Url"  th:field="*{imgUrl}" />
+                </td></tr>
+                <tr>
+                    <td><input type="submit"  /></td>
+                </tr>
+            </table>
+        </form>
+    </section>
+</div>
+
+
+</body>
+</html>

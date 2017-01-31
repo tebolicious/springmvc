@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Add Artist</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}"
+          href="../static/css/style.css"/>
+
+</head>
+<body>
+<div>
+    <section class="artistinfo">
+        <div class="artist cf" ng-model="artists">
+            <h1 th:text="${artist.fullName}"></h1>
+            <div class="info">
+                <h3 th:text="${artist.reknown}"></h3>
+                <img th:src="${artist.imgUrl}"/>
+                <div class="bio"><span th:text="${artist.bio}"></span></div>
+            </div>
+        </div>
+        <a href="/Artist/new">&laquo; Add Artist</a> <a href="/Artist">&laquo; All Artist</a>
+    </section>
+</div>
+
+
+</body>
+</html>

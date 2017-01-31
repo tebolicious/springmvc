@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Home : All Artists</title>
+    <script src="../lib/angular/angular.min.js"></script>
+    <script src="../js/controllers.js"></script>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <script src="../lib/angular/angular-route.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../lib/angular/angular-animate.min.js"></script>
+</head>
+<body>
+<div ng-view="">
+
+</div>
+<!--
+<script>
+    // Comments begin with //
+    // Get the current date
+    // The following statements declare variables
+    var today = new Date();
+    // Get the current month
+    var month = today.getMonth();
+    // Declare a variable called displayMonth
+    var displayMonth="";
+    // The following is a switch statement
+    // Attach a display name to each of 12 possible month numbers
+    switch (month) {
+        case 0 :
+            displayMonth = 'January'
+break
+        case 1 :
+            displayMonth = 'February'
+break
+        case 2 :
+            displayMonth = 'March'
+break
+        case 3 :
+            displayMonth = 'April'
+break
+        case 4 :
+            displayMonth = 'May'
+break
+        case 5 :
+            displayMonth = 'June'
+break
+        case 6 :
+            displayMonth = 'July'
+break
+        case 7 :
+            displayMonth = 'August'
+break
+        case 8 :
+            displayMonth = 'September'
+break
+        case 9 :
+            displayMonth = 'October'
+break
+        case 10 :
+            displayMonth = 'November'
+break
+        case 11 :
+            displayMonth = 'December'
+break
+        default: displayMonth = 'INVALID'
+    }
+    // Set some more variables to make the JavaScript code
+    // easier to read
+    var hours = today.getHours();
+    var minutes = today.getMinutes();
+    var greeting;
+    var ampm;
+    // We consider anything up until 11 a.m. “morning'
+    if (hours <= 11) {
+        greeting = 'Good morning!';
+        ampm='a.m.';
+// JavaScript reports midnight as 0, which is just
+// plain crazy; so we want to change 0 to 12.
+        if (hours == 0) {
+            hours = 12;
+        }
+    }
+// We consider anything after 11:00 a.m. and before
+// 6 p.m. (in military time, 18) to be “afternoon'
+    else if (hours > 11 && hours < 18) {
+        greeting = 'Good afternoon!';
+        ampm = 'p.m.';
+// We don’t want to see military time, so subtract 12
+        if (hours > 12) {
+            hours -= 12;
+        }
+    }
+    // We consider anything after five p.m. (17 military) but
+// before nine p.m. (21 in military time) “evening'
+    else if (hours > 17 && hours < 21) {
+        greeting = 'Good evening!';
+        ampm = 'p.m.';
+        hours -= 12;
+    }
+// We consider nine o’clock until midnight “night'
+    else if (hours > 20) {
+        greeting = 'Good night!';
+        ampm = 'p.m.';
+        hours -= 12;
+    }
+    // We want the minutes to display with “0' in front
+    // of them if they’re single-digit. For example,
+    // rather than 1:4 p.m., we want to see 1:04 p.m.
+    if (minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    // + is a concatenation operator
+    var displayGreeting = displayMonth + " "
+    + today.getDate() + ", "
+    + today.getYear()
+    + " - " + hours + " : " + minutes + " " + ampm;
+    var name="Mr Mulaudzi";
+    console.log(greeting,name);
+   //Greeting function end
+    function move(direction) {
+        var layerText = document.getElementById("myLayer");
+        switch(direction) {
+// If move() is called with an argument of “left,' reposition text
+// layer so that it is now 50 pixels from the left-hand side of the
+// window.
+            case 'left':
+                layerText.style.left = 50;
+                break;
+            case 'right':
+                layerText.style.left = 150;
+                break;
+            case 'up':
+                layerText.style.top = 50;
+                break;
+            case 'down':
+                layerText.style.top = 150;
+                break;
+        }
+    }
+</script>
+-->
+</body>
+</html>
