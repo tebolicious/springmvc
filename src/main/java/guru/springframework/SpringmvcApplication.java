@@ -16,6 +16,7 @@ import java.util.Random;
 public class SpringmvcApplication {
 
 	public static void main(String[] args) {
+	//Thendo applocation
 	SpringApplication.run(SpringmvcApplication.class, args);
 
 	}
